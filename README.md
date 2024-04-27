@@ -1,5 +1,5 @@
 # MID-J Search
-Fetches and filters URLs of generated MidJourney images <br />
+Fetches, filters, and downloads MidJourney generated images <br />
 Data is from kaggle dataset: https://www.kaggle.com/datasets/ldmtwo/midjourney-250k-csv
 
 ## How to use
