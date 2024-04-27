@@ -1,5 +1,6 @@
 import os
 import csv
+import scrape
 
 RELATIVE_DATA_PATH: str = "MidjourneyCSV-Kaggle"
 DATASET_NAME: str = "midjourney_2022_250k.csv"
@@ -26,12 +27,16 @@ def fetchURLs(searchCriteria:list, terms:int, csv_file:str = DATAFILE_PATH) -> l
     with open(csv_file, 'r', newline='') as file:
         reader = csv.reader(file)
         for row in reader:
-            if(len(searchResult) >= terms and terms > 0):
+            if(len(searchResult) >= terms and terms > -1):
                 break
             if(matchSearch(searchCriteria, row[DESCRIPTION_INDEX])):
                 searchResult.append(COMPLETE_MIDJOURNEY_URL(row[IMAGE_URL_INDEX]))
     return searchResult
 
+
+def downloadMidJourneyImages(searchResults:list, downloadDir: str):
+    for url in searchResults:
+        scrape.automateFetch(url, downloadDir)
 
 
 

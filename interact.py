@@ -13,3 +13,9 @@ searchResult = searchMJ.fetchURLs(criterias.split(' '), limitSearch)
 
 for url in searchResult:
     print(url)
+
+
+download = input("Download Y/N (warning: large batches may result in IP ban): ")
+
+if(download == "y" or download == 'Y'):
+    searchMJ.downloadMidJourneyImages(searchResult, criterias)
